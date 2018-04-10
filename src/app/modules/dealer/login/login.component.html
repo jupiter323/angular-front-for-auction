@@ -1,0 +1,30 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Dealer Login</h1>        
+    </div>
+</section>
+
+<section class="b-contacts s-shadow">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+            </div>    
+            <div class="col-xs-6">
+                <div class="b-contacts__form">
+                    <h2 data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                        <h2 class="s-titleDet">Login Form</h2> 
+                    </h2>
+                    <p data-wow-delay="0.5s" >Enter your credentials below to login as dealer.</p>
+                    <div id="success"></div> 
+                    <h5 *ngIf="loginMsg && loginMsg.error" class="label-danger">{{loginMsg.message}}</h5>
+                    <h5 *ngIf="loginMsg && !loginMsg.error" class="label-success">{{loginMsg.message}}</h5>
+                    <form #dealerLoginForm="ngForm" id="contactForm" novalidate="" class="s-form wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;" (ngSubmit)="dealerLogin(dealerLoginForm)">                        
+                        <input type="text" placeholder="EMAIL" value="" name="email" id="email" #email="ngModel" ngModel>
+                        <input type="password" placeholder="PASSWORD" value="" name="password" id="password" #password="ngModel" ngModel>
+                        <button type="submit" class="btn m-btn">SUBMIT NOW<span class="fa fa-angle-right"></span></button>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+</section>

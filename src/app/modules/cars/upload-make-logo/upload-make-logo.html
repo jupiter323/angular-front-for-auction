@@ -1,0 +1,41 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Upload Car Logo</h1>        
+    </div>
+</section>
+<div class="b-submit">
+	<div class="container">				
+		<div class="row">				
+			<div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
+				<div class="b-submit__main">
+					<header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+						<h2 class="">Upload Logo</h2>
+					</header>
+					<form class="s-submit clearfix" #uplodLogoForm="ngForm" (ngSubmit)="uploadLogo(uplodLogoForm)">
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+									<label>Enter Make <span>*</span></label>
+									<div class="s-relative">
+										<select class="m-select" name="selectMakeId" [(ngModel)]="car.make" #selectMakeId="ngModel">
+											<option value="">Select Make</option>
+											<option *ngFor="let mk of allmakes" [value]="mk.make_id">{{mk.name}}</option>
+										</select>
+										<span class="fa fa-caret-down"></span>
+									</div>
+								</div>
+							</div>
+                            <div class="col-md-12 col-xs-12">
+								<label>Enter Make <span>*</span></label>
+                                <input type="text" name="image_url" id="image_url" [(ngModel)]="car.image_url">
+                            </div>
+						</div>						
+						
+						<button type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">Upload Logo<span class="fa fa-angle-right"></span></button>
+												
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

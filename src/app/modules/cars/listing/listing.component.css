@@ -1,0 +1,38 @@
+
+.b-items__cell {
+    border: none!important;
+}
+.s-lineDownLeft:after {
+    background: none!important;
+}
+.s-lineDownLeft {
+    border-bottom: none!important;
+    text-align: center!important;
+}
+
+.row.m-smallPadding > div {
+    text-align: center!important;
+    width: 100%!important;
+    margin-top:-35px!important;
+}
+.model_name {
+    font-size: 15px!important;
+    padding-left: 0px!important;
+}
+
+.year_class{
+    font-size: 12px!important;
+    padding-left: 0px!important;
+    color: darkgrey!important;
+    font-weight: 700!important;
+
+}
+.trim_height{
+    height: 41px;
+}
+.b-items__cars-one-img img{
+    height: 123px;
+}
+.b-items__cars-one-img {
+    text-align: center!important;
+}

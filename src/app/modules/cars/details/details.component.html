@@ -1,0 +1,435 @@
+<!-- <section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Car Details</h1>
+    </div>
+</section> -->
+<!--b-pageHeader-->
+
+<!-- <div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a href="home.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="listings.html" class="b-breadCumbs__page">Luxury Cars</a><span class="fa fa-angle-right"></span><a href="listingsTwo.html" class="b-breadCumbs__page">Nissan</a><span class="fa fa-angle-right"></span><a href="detail.html" class="b-breadCumbs__page m-active">Nissan Maxima</a>
+    </div>
+</div> -->
+<!--b-breadCumbs-->
+
+<!-- <div class="b-infoBar">
+    <div class="container">
+        <div class="row wow zoomInUp" data-wow-delay="0.5s">
+            <div class="col-xs-3">
+                <div class="b-infoBar__premium">Premium Listing</div>
+            </div>
+            <div class="col-xs-9">
+                <div class="b-infoBar__btns">
+                    <a href="#" class="btn m-btn m-infoBtn">SHARE THIS VEHICLE<span class="fa fa-angle-right"></span></a>
+                    <a href="#" class="btn m-btn m-infoBtn">ADD TO FAVOURITES<span class="fa fa-angle-right"></span></a>
+                    <a href="#" class="btn m-btn m-infoBtn">PRINT THIS PAGE<span class="fa fa-angle-right"></span></a>
+                    <a href="#" class="btn m-btn m-infoBtn">DOWNLOAD MANUAL<span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--b-infoBar-->
+
+
+<section class="b-detail s-shadow">
+
+	<div class="container">
+		<header class="b-detail__head s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+			<div class="row">
+				<div class="col-sm-9 col-xs-12">
+					<div class="b-detail__head-title">
+						<!-- <h1 *ngIf="carDetails.model_info && carDetails.model_info.model">{{carDetails.model_info.make.name}} - {{carDetails.model_info.model.name}}</h1> -->
+						<div *ngIf="carDetails">
+							<h1 *ngIf="carDetails.trim&&carDetails.price">{{carDetails.make}}&nbsp;&nbsp;{{carDetails.model}}&nbsp;&nbsp;{{carDetails.trim}} &nbsp;&nbsp;&nbsp; Best rate ${{carDetails.price.low}}</h1>
+							<h1 *ngIf="!carDetails.trim&&carDetails.price">{{carDetails.make}}&nbsp;&nbsp;{{carDetails.model}}&nbsp;&nbsp;{{carDetails.style}} &nbsp;&nbsp;&nbsp; Best rate ${{carDetails.price.low}}</h1>
+						</div>
+						<!-- <h3>Fully Redesigned Upscale Midsize Car</h3> -->
+					</div>
+				</div>
+				<!-- <div class="col-sm-3 col-xs-12">
+							<div class="b-detail__head-price">
+								<div class="b-detail__head-price-num">$44,380</div>
+								<p>Included Taxes &amp; Checkup</p>
+							</div>
+						</div> -->
+			</div>
+		</header>
+		<div class="b-detail__main">
+			<div class="row">
+				<div class="col-md-8 col-xs-12">
+					<div class="b-detail__main-info">
+						<div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+							<div class="row m-smallPadding">
+								<div class="col-xs-10">
+									<ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal"
+									 data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
+										<li class="s-relative">
+											<!-- <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a> -->
+											<!-- <img *ngIf="carDetails.model_info && carDetails.model_info.model" class="img-responsive center-block" src="{{apiImageUrl}}{{carDetails.model_info.model.image_original}}"/> -->
+											<img *ngIf="mainImgUrl" class="img-responsive center-block mainimageclass" src="{{mainImgUrl}}" />
+
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<!-- <div class="b-detail__main-info-characteristics wow zoomInUp" data-wow-delay="0.5s">
+									<div class="b-detail__main-info-characteristics-one">
+										<div class="b-detail__main-info-characteristics-one-top">
+											<div><span class="fa fa-car"></span></div>
+											<p>Brand New</p>
+										</div>
+										<div class="b-detail__main-info-characteristics-one-bottom">
+											Status
+										</div>
+									</div>									
+								</div> -->
+						<div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
+							<!-- <div class="b-detail__main-aside-about-form-links">
+										<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>GENERAL INQUIRY</a>
+										<a href="#" class="j-tab" data-to='#info2'>SCHEDULE TEST DRIVE</a>
+										<a href="#" class="j-tab" data-to='#info3'>GENERAL INQUIRY</a>
+										<a href="#" class="j-tab" data-to='#info4'>SCHEDULE TEST DRIVE</a>
+									</div> 
+									<div id="info1">
+										<p>The 2016 Nissan Maxima is powered by a 3.5-liter V6 engine with 300 horsepower, 10 more than the engine in the outgoing
+											model. A continuously variable transmission and front-wheel drive are standard in all models. Nissan expects the 2016 Maxima
+											to return 22/30 mpg city/highway, which is an improvement over the previous model's EPA-estimated 19/26 mpg.</p>
+										<p>
+											The 2016 Nissan Maxima seats five and comes with a power-adjustable driver,seat, an eight-speaker audio system, Bluetooth,
+											satellite radio, HD Radio, push-button start, a rearview camera, two USB ports, the NissanConnect infotainment system,
+											navigation, an 8-inch color display screen and voice controls for phone, audio and navigation functions. Leather upholstery,
+											heated and ventilated front seats, an 11-speaker Bose audio system, a 360-degree parking camera system, adaptive cruise
+											control, blind spot warning, rear cross traffic alert, front and rear parking sensors and forward collision warning with automatic
+											braking are available. The 2016 Nissan Maxima starts at $33,235 including destination fees.</p>
+										<p>The full review of the 2016 Nissan Maxima is coming soon. In the meantime, you can see pictures, research prices or view and
+											compare specs for the 2016 Nissan Maxima. If you, considering the 2014 Nissan Maxima, you can read our review.</p>
+										<p>Vestibulum auctor lacinia nunc. Nunc ut turpis.Sed libero magna, fermentum viverra, egestas non, fermentum sed, elit. Aenean
+											erat orci, mollis quis gravida sed, mollis a, quam. Integer fermentum neque egestas orci. Nunc posuere, felis sit amet faucibus
+											convallis tortor enim viverra quam, hendrerit interdum dui quam ut lacus. Donec quis quam in ante condimentum blan erdit.
+											Integer et urna. Vestibulum nisl. Ut ante est, imperdiet dignissim eleifend sit amet lacinia tempor justo. Nunc ornare atm nibh.
+											Fusce ut felis. </p>
+										<p>Donec ullamcorper nisi ac lectus. Proin at orci. Suspendisse nec orci nec elit convallis porttitor. Praesent sit amet turpis eu nisl
+											faucibus pharetra. Sed eu felis. Etiam eleifend nisl nec lectus. Ut suscipit pede eu diam. Aenean vitae quam. Cras felis. Sed utdw
+											nibh. Duis libero. Vivamus pharetra libero non facilisis imperdiet mi augue feugiat nisl.</p>
+									</div>
+									<div id="info2">
+										<p>The full review of the 2016 Nissan Maxima is coming soon. In the meantime, you can see pictures, research prices or view and
+											compare specs for the 2016 Nissan Maxima. If you‚considering the 2014 Nissan Maxima, you can read our review.</p>
+										<p>Vestibulum auctor lacinia nunc. Nunc ut turpis.Sed libero magna, fermentum viverra, egestas non, fermentum sed, elit. Aenean
+											erat orci, mollis quis gravida sed, mollis a, quam. Integer fermentum neque egestas orci. Nunc posuere, felis sit amet faucibus
+											convallis tortor enim viverra quam, hendrerit interdum dui quam ut lacus. Donec quis quam in ante condimentum blan erdit.
+											Integer et urna. Vestibulum nisl. Ut ante est, imperdiet dignissim eleifend sit amet lacinia tempor justo. Nunc ornare atm nibh.
+											Fusce ut felis. </p>
+										<p>Donec ullamcorper nisi ac lectus. Proin at orci. Suspendisse nec orci nec elit convallis porttitor. Praesent sit amet turpis eu nisl
+											faucibus pharetra. Sed eu felis. Etiam eleifend nisl nec lectus. Ut suscipit pede eu diam. Aenean vitae quam. Cras felis. Sed utdw
+											nibh. Duis libero. Vivamus pharetra libero non facilisis imperdiet mi augue feugiat nisl.</p>
+									</div>
+									<div id="info3">
+										<p>Vestibulum auctor lacinia nunc. Nunc ut turpis.Sed libero magna, fermentum viverra, egestas non, fermentum sed, elit. Aenean
+											erat orci, mollis quis gravida sed, mollis a, quam. Integer fermentum neque egestas orci. Nunc posuere, felis sit amet faucibus
+											convallis tortor enim viverra quam, hendrerit interdum dui quam ut lacus. Donec quis quam in ante condimentum blan erdit.
+											Integer et urna. Vestibulum nisl. Ut ante est, imperdiet dignissim eleifend sit amet lacinia tempor justo. Nunc ornare atm nibh.
+											Fusce ut felis. </p>
+										<p>Donec ullamcorper nisi ac lectus. Proin at orci. Suspendisse nec orci nec elit convallis porttitor. Praesent sit amet turpis eu nisl
+											faucibus pharetra. Sed eu felis. Etiam eleifend nisl nec lectus. Ut suscipit pede eu diam. Aenean vitae quam. Cras felis. Sed utdw
+											nibh. Duis libero. Vivamus pharetra libero non facilisis imperdiet mi augue feugiat nisl.</p>
+									</div>
+									<div id="info4">
+										<p>Donec ullamcorper nisi ac lectus. Proin at orci. Suspendisse nec orci nec elit convallis porttitor. Praesent sit amet turpis eu nisl
+											faucibus pharetra. Sed eu felis. Etiam eleifend nisl nec lectus. Ut suscipit pede eu diam. Aenean vitae quam. Cras felis. Sed utdw
+											nibh. Duis libero. Vivamus pharetra libero non facilisis imperdiet mi augue feugiat nisl.</p>
+									</div>-->
+						</div>
+					</div>
+					<!-- tab -->
+
+					<div class="container">
+						<!-- <h1 class="wow zoomInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: zoomInUp;">UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE</h1> -->
+						<tabset>
+							<tab heading="Full Vehicle Details" id="tab1">
+								<div class="popup" (click)="pupupFun()">
+									<h1 class="see_v">See full Vehicle Details</h1>
+									<!-- <div *ngIf="carDetails.price" class="popuptext" id="myPopup">Best late is ${{carDetails.price.low}} Transmission is "{{carDetails.transmission}}"
+									</div> -->
+									<div *ngIf="carDetails.price" class="popuptext" id="myPopup">
+										<h2>Full Vehicle Details</h2>
+										<div class="content des_style">
+											<ul>
+												<li>
+													Best late is ${{carDetails.price.low}}
+												</li>
+												<li>
+													Transmission is&nbsp; "{{carDetails.transmission}}"
+
+												</li>
+												<li>
+													Engine is&nbsp;"{{carDetails.engine}}"
+
+												</li>
+												<li>
+													Factory info:
+													<p></p>
+													<p *ngFor='let factInfo of fullDetail["S:Envelope"]["S:Body"]["0"].VehicleDescription["0"].factoryOption'>
+														&nbsp;{{factInfo.description["0"]}}
+													</p>
+												</li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- 					
+								<div class="makeLogos row">
+									<div class="col-md-2">
+										aaaa
+									</div>
+								</div> -->
+							</tab>
+
+							<tab heading="Media">
+								<!-- <div class="makeLogos row row_gal">
+									<div class="col-md-2"> -->
+
+								<!-- The four columns -->
+								<div class="row galleryRow">
+									<div *ngFor="let gallery of galleryDetails.view;let i= index" class="column">
+										<img src="{{gallery['@href']}}" alt="Nature" [ngClass]="(i==selectedGallery)?'selected':''" (click)="galleryClick(i)">
+									</div>
+								</div>
+
+
+								<!-- </div>
+								</div> -->
+							</tab>
+							<!-- <tab heading="Vehicle Extras">
+								<div class="makeLogos row">
+									<div class="col-md-2">
+										bbbb
+									</div>
+								</div>
+							</tab> -->
+
+						</tabset>
+					</div>
+					<!--end tab -->
+					<div class="col-md-12">
+						<h2 class="s-titleDet">Seller Listings</h2>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Vendor</th>
+									<th>Monthly Lease price</th>
+									<th>Payment Down</th>
+									<th>Term of lease</th>
+									<th>&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let listing of carDetails.listings">
+									<td>
+										<span *ngIf="listing.dealer">
+											{{listing.dealer.businessname}}
+										</span>
+										<span *ngIf="!listing.dealer">
+											N/A
+										</span>
+									</td>
+									<td>
+										{{listing.monthly_lease_price }} USD
+									</td>
+									<td>
+										{{listing.money_down }} USD
+									</td>
+									<td>
+										{{listing.term_of_lease }} Months
+									</td>
+									<td>
+										<button class="btn btn-success" type="button" (click)="openModal(template, listing._id)">CONTACT</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12">
+					<aside class="b-detail__main-aside">
+						<div *ngIf="carDetails && mainImgUrl" class="b-detail__main-aside-desc wow zoomInUp" data-wow-delay="0.5s">
+							<!-- <h2 class="s-titleDet">Description</h2> -->
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Make</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.make.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.make}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Model</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.model}}</p>
+								</div>
+							</div>
+							<!-- // added by superman -->
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">MSRP</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails.price">{{carDetails.price.low | currency:'USD':true}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Body Style</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.bodystyle}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Combined MPG</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.mpg}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Engine</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.engine}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Drivetrain</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.drivetrain}}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4">
+									<h4 class="b-detail__main-aside-desc-title">Transmission</h4>
+								</div>
+								<div class="col-xs-8">
+									<!-- <p class="b-detail__main-aside-desc-value" *ngIf="carDetails.model_info">{{carDetails.model_info.model.name}}</p> -->
+									<p class="b-detail__main-aside-desc-value" *ngIf="carDetails">{{carDetails.transmission}}</p>
+								</div>
+							</div>
+						</div>
+						<!-- advertisement -->
+						<!-- <div class="col-md-12">
+									<img src="https://dummyimage.com/300x600/ccc/000&text=Advertisement">
+								</div>		 -->
+						<!-- end advertisement -->
+
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section class="b-related m-home">
+	<div class="container">
+		<h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">FIND OUT MORE</h5>
+		<br>
+		<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">RELATED VEHICLES ON SALE</h2>
+		<div class="row">
+			<div class="col-md-3 col-xs-6" *ngFor="let related of relatedModels">
+				<div class="b-auto__main-item wow zoomInLeft" data-wow-delay="0.5s" style="height: 336px; visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">
+					<img *ngIf="related.image_original" class="img-responsive center-block" src="{{apiImageUrl}}{{related.image_original}}" />
+					<!-- <div class="b-world__item-val">
+							<span class="b-world__item-val-title">REGISTERED <span>2014</span></span>
+						</div> -->
+					<h2>
+						<a routerLink="/cars/details" [queryParams]="{ model: related.model_id }"> {{related.name}}
+						</a>
+					</h2>
+					<!-- <div class="b-auto__main-item-info s-lineDownLeft">
+							<span class="m-price">
+								$44,380
+							</span>
+							<span class="m-number">
+								<span class="fa fa-tachometer"></span>35,000 KM
+							</span>
+						</div> -->
+					<!-- <div class="b-featured__item-links m-auto">
+							<a href="#">Used</a>
+							<a href="#">2014</a>
+							<a href="#">Manual</a>
+							<a href="#">Orange</a>
+							<a href="#">Petrol</a>
+						</div> -->
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+<ng-template #template>
+	<form id="form1" action="" #doEnquiryForm="ngForm" (ngSubmit)="doEnquiry(doEnquiryForm)" class="s-form wow zoomInUp">
+		<div class="modal-header">
+
+			<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h4 class="modal-title">INQUIRE ABOUT THIS VEHICLE</h4>
+		</div>
+		<div class="modal-body row refine_search">
+			<div class="col-md-12 col-lg-12">
+				<div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
+					<div *ngIf="showSuccess" class="alert alert-success">
+						<strong>Success!</strong> Thanks for enquiry. We have forwarded message to dealer . He will contact you soon.
+					</div>
+
+
+					<div class="col-md-6">
+						<input type="text" placeholder="FIRST NAME" name="firstname" [(ngModel)]="newEnquiry.firstname" #firstname="ngModel">
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="LAST NAME" name="lastname" [(ngModel)]="newEnquiry.lastname" #lastname="ngModel">
+					</div>
+					<div class="col-md-6">
+						<input type="email" placeholder="EMAIL ADDRESS" value="" name="email" [(ngModel)]="newEnquiry.email" #email="ngModel" />
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="PHONE NO." name="phone" [(ngModel)]="newEnquiry.phone" #phone="ngModel" />
+					</div>
+					<div class="col-md-6">
+						<textarea name="text" placeholder="Message" [(ngModel)]="newEnquiry.message" #message="ngModel"></textarea>
+					</div>
+					<!-- <div><input type="checkbox" name="one" value="" /><label>Send me a copy of this message</label></div>
+						<div><input type="checkbox" name="two" value="" /><label>Send me a copy of this message</label></div> -->
+
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn m-btn">SEND MESSAGE
+				<span class="fa fa-angle-right"></span>
+			</button>
+		</div>
+	</form>
+</ng-template>

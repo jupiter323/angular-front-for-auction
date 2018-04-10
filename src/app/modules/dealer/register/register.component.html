@@ -1,0 +1,63 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Dealer Signup</h1>        
+    </div>
+</section>
+
+<section class="b-contacts s-shadow">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+            </div>    
+            <div class="col-xs-6">
+                <div class="b-contacts__form">
+                    <h2 data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                        <h2 class="s-titleDet">Signup Form</h2> 
+                    </h2>
+                    <p data-wow-delay="0.5s" >Enter your details below to signup as dealer.</p>
+                    <div id="success"></div> 
+                    <h5 *ngIf="signupsMsg && signupsMsg.error" class="label-danger">{{signupsMsg.message}}</h5>
+                    <h5 *ngIf="signupsMsg && !signupsMsg.error" class="label-success">{{signupsMsg.message}}</h5>
+                    <form #dealerSignupForm="ngForm" id="contactForm" novalidate="" class="s-form wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;" (ngSubmit)="dealerSignup(dealerSignupForm)">                        
+                        <input type="text" placeholder="FIRST NAME" value="" name="firstname" id="firstname" #firstname="ngModel" ngModel>
+                        <input type="text" placeholder="LAST NAME" value="" name="lastname" id="lastname" #lastname="ngModel" ngModel>
+                        <input type="text" placeholder="EMAIL" value="" name="email" id="email" #email="ngModel" ngModel>
+                        <input type="text" placeholder="BUSINESS NAME" value="" name="businessname" id="businessname" #businessname="ngModel" ngModel>
+                        <input type="text" placeholder="CONTACT NO" value="" name="mobile_no" id="mobile_no" #mobile_no="ngModel" ngModel>
+                        <input type="password" placeholder="PASSWORD" value="" name="password" id="password" #password="ngModel" ngModel>
+                        <button type="submit" class="btn m-btn">SUBMIT NOW<span class="fa fa-angle-right"></span></button>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="col-xs-6">
+                <div class="signup_welcome_box">
+                    <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">opening hours</h2>
+                    <ul>
+                        <li><span class="fa fa-check"></span>Donec facilisis velit eu est phasellus consequat </li>
+                        <li><span class="fa fa-check"></span>Aenean vitae quam. Vivamus et nunc nunc consequat</li>
+                        <li><span class="fa fa-check"></span>Sem vel metus imperdiet lacinia enean </li>
+                        <li><span class="fa fa-check"></span>Dapibus aliquam augue fusce eleifend quisque tels</li>
+                    </ul>
+                </div>
+                <div class="b-contacts__address">
+                    <div class="b-contacts__address-hours">
+                        <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">opening hours</h2>
+                        <div class="b-contacts__address-hours-main wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <h5>Sales Department</h5>
+                                    <p>Mon-Sat : 8:00am - 5:00pm <br>Sunday is closed</p>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <h5>Service Department</h5>
+                                    <p>Mon-Sat : 8:00am - 5:00pm <br>Sunday is closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+             </div>-->
+        </div>
+    </div>
+</section>

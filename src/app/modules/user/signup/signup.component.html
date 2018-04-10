@@ -1,0 +1,31 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Customer Signup</h1>
+    </div>
+</section>
+
+<section class="b-contacts s-shadow">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+            </div>    
+            <div class="col-xs-6">
+                <div class="b-contacts__form">
+                    <h2 data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                        <h2 class="s-titleDet">Customer Signup Form</h2> 
+                    </h2>
+                    <p data-wow-delay="0.5s" >Enter your details below to signup as customer.</p>
+                    <form #customerSignupForm="ngForm" id="contactForm" novalidate="" class="s-form wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;" (ngSubmit)="customerSignup(customerSignupForm)">
+                        <input type="text" placeholder="FIRST NAME" value="" name="firstname" id="firstname" #firstname="ngModel" [(ngModel)]="customer.firstname">
+                        <input type="text" placeholder="LAST NAME" value="" name="lastname" id="lastname" #lastname="ngModel" [(ngModel)]="customer.lastname">
+                        <input type="text" placeholder="EMAIL" value="" name="email" id="email" #email="ngModel" [(ngModel)]="customer.email">
+                        <input type="text" placeholder="CONTACT NO" value="" name="mobile_no" id="mobile_no" #mobile_no="ngModel" [(ngModel)]="customer.mobile_no">
+                        <input type="password" placeholder="PASSWORD" value="" name="password" id="password" #password="ngModel" [(ngModel)]="customer.password">
+                        <button type="submit" class="btn m-btn">SUBMIT<span class="fa fa-angle-right"></span></button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

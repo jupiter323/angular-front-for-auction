@@ -1,0 +1,172 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Submit Your Car</h1>        
+    </div>
+</section>
+
+<div class="b-infoBar">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+				<div class="b-infoBar__progress wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+					<div class="b-infoBar__progress-line clearfix">
+						<div class="b-infoBar__progress-line-step">
+							<div class="b-infoBar__progress-line-step-circle">
+								<div class="b-infoBar__progress-line-step-circle-inner m-active"></div>
+							</div>
+						</div>						
+						<div class="b-infoBar__progress-line-step">
+							<div class="b-infoBar__progress-line-step-circle">
+								<div class="b-infoBar__progress-line-step-circle-inner"></div>
+							</div>
+							<div class="b-infoBar__progress-line-step-circle m-last">
+								<div class="b-infoBar__progress-line-step-circle-inner"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="b-submit">
+			<div class="container">
+				<div class="row" *ngIf="carSuccess">
+					<div class="col-md-12">
+						<h5 class="label-success text-center">Congratulations !! Your car is added successfully. </h5>
+					</div>
+				</div>
+				<div class="row" *ngIf="!carSuccess">
+					<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+						<aside class="b-submit__aside">
+							<div class="b-submit__aside-step m-active wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+								<h3>Step 1</h3>
+								<div class="b-submit__aside-step-inner m-active clearfix">
+									<div class="b-submit__aside-step-inner-icon">
+										<span class="fa fa-car"></span>
+									</div>
+									<div class="b-submit__aside-step-inner-info">
+										<h4>Add YOUR Vehicle</h4>
+										<p>Select your vehicle &amp; add info</p>
+										<div class="b-submit__aside-step-inner-info-triangle"></div>
+									</div>
+								</div>
+							</div>
+							<div class="b-submit__aside-step wow zoomInUp" [ngClass]="{'m-active':(activeStep >= 2)}" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+								<h3>Step 2</h3>
+								<div class="b-submit__aside-step-inner clearfix" [ngClass]="{'m-active':(activeStep >= 2)}">
+									<div class="b-submit__aside-step-inner-icon">
+										<span class="fa fa-list-ul"></span>
+									</div>
+									<div class="b-submit__aside-step-inner-info">
+										<h4>lease details</h4>
+										<p>Enter lease details</p>
+										<div *ngIf="(activeStep >= 2)" class="b-submit__aside-step-inner-info-triangle"></div>
+									</div>
+								</div>
+							</div>							
+						</aside>
+					</div>
+					<div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
+						<div class="b-submit__main">
+							<header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+								<h2 class="">Add Your Vehicle Details</h2>
+							</header>
+							<form class="s-submit clearfix" #submitCarForm="ngForm" (ngSubmit)="submitCar(submitCarForm)">
+								<div class="row" [hidden]="activeStep != 1">
+									<div class="col-md-6 col-xs-12">
+										<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+											<label>Enter Make <span>*</span></label>
+											<div class="s-relative">
+												<select class="m-select" name="selectMake" (ngModelChange)="selectDetails('make',$event)" [(ngModel)]="car.make" #selectMake="ngModel">
+													<option value="">Select Make</option>
+													<option *ngFor="let mk of allmakes" [value]="mk.make_id">{{mk.name}}</option>
+												</select>
+												<span class="fa fa-caret-down"></span>
+											</div>
+										</div>										
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+											<label>Enter Vehicle Model <span>*</span></label>
+											<div class="s-relative">
+												<select class="m-select" name="selectModels" [(ngModel)]="car.model" (ngModelChange)="selectDetails('model')">
+													<option value="">Select</option>
+													<option *ngFor="let md of selectedModels" [value]="md.model_id">{{md.name}}</option>
+												</select>
+												<span class="fa fa-caret-down"></span>
+											</div>
+										</div>										
+									</div>
+								</div>
+								<div class="row" [hidden]= "activeStep != 2">
+										<div class="col-md-6">
+											<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+												<label>Term of lease (In months) <span>*</span></label>
+												<div class="s-relative">
+													<select class="m-select" name="leaseTerm" [(ngModel)]="car.leaseTerm" #leaseTerm="ngModel">
+														<option value="12">12</option>
+														<option value="12">18</option>
+														<option value="12">24</option>
+														<option value="12">36</option>
+														<option value="12">48</option>
+													</select>
+													<span class="fa fa-caret-down"></span>
+												</div>
+											</div>
+											<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+												<label>Monthly lease price (In USD) <span>*</span></label>
+												<div class="s-relative">
+													<input type="text" name="leaseMonthlyPayment" [(ngModel)]="car.leaseMonthlyPayment" #leaseMonthlyPayment="ngModel"/>
+
+												</div>
+											</div>
+
+											<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: zoomInUp;">
+												<label>Color</label>						
+												<div class="s-relative col-md-6 no-padding">	
+													<input type="text" placeholder="Enter color" [disabled]="car.allcolor" name="carColor" [(ngModel)]="car.color" #carColor="ngModel">	
+												</div>
+												<div class="col-md-6" style="line-height: 55px;">
+													<input type="checkbox" name="carAllColor" id="check1" [(ngModel)]="car.allcolor" #carAllColor="ngModel">
+													<label class="s-submitCheckLabel" for="check1"><span class="fa fa-check"></span></label>
+													<label class="s-submitCheck" for="check1">All Color</label>
+												</div>	
+
+												
+
+											</div>									
+										</div>
+										<div class="col-md-6">
+											<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+												<label>Miles per year <span>*</span></label>
+												<div class="s-relative">
+													<input type="text" name="milesPerYear" [(ngModel)]="car.milesPerYear" #milesPerYear="ngModel">
+												</div>
+											</div>
+											<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+												<label>Vehicle Identification Number </label>
+												<div class="s-relative">
+													<input type="text" name="carVIN" [(ngModel)]="car.vin" #carVIN="ngModel">
+												</div>
+											</div>
+
+											<div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+												<label>Money Down </label>
+												<div class="s-relative">
+													<input type="text" class="m-select" name="leaseSigningDue" [(ngModel)]="car.leaseSigningDue" #leaseSigningDue="ngModel"/>	
+												</div>
+											</div>
+										</div>
+										
+								</div>
+								<button *ngIf="activeStep == 1" type="button" [disabled]="!car.make || !car.model" (click)="activeStep = activeStep + 1" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">Save &amp; PROCEED to next step<span class="fa fa-angle-right"></span></button>
+								<button *ngIf="activeStep == 2" type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">Submit <span class="fa fa-check"></span></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

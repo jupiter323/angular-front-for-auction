@@ -1,0 +1,44 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Customer Enquiries</h1>        
+    </div>
+</section>
+
+<section class="b-detail s-shadow">    
+<div class="container">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Customer Email
+                    </th>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Contact No
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let enquiry of enquiries">
+                    <td>
+                        {{enquiry.email}}
+                    </td>
+                    <td>
+                        {{enquiry.first_name}}
+                    </td>
+                    <td>
+                        {{enquiry.last_name}}
+                    </td>
+                    <td>
+                        {{enquiry.email}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+</section>

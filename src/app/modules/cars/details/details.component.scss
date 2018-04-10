@@ -1,0 +1,126 @@
+
+th {
+    border: none!important;
+
+}
+.mainimageclass {
+    height: 311px!important;
+}
+.see_v {
+    margin-top: 20px;
+    font-size: 17px;
+    margin-left: 20px;
+    font-weight: 600;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: auto;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    /* border-style: solid; */
+
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    width: 900px;
+    height: 500px;
+    overflow-y:scroll;
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+.des_style{
+    float: left;
+    padding: 13px;
+    li {
+        text-align: left;
+        padding:13px;
+
+    }
+}
+
+
+
+
+
+/* The grid: Four equal columns that floats next to each other */
+.galleryRow{
+    overflow-y: -webkit-paged-x;
+    height: 140px;
+    width: 100%;
+}
+.column {
+    float: left;
+    /* width: 10%; */
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.5; 
+    cursor: pointer; 
+    height: 85px;
+}
+
+.column img:hover {
+    opacity: 1;
+}
+.selected {
+    opacity: 1!important;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+

@@ -1,0 +1,176 @@
+<div class="row" id="brandLogoBanner">
+    <div class="col-md-12 text-center">
+        <img *ngIf="makeData.message" src="{{apiImageUrl}}{{makeData.message.logo}}" />
+    </div>
+    <div class="col-dm-12 text-center">
+        <h2 *ngIf="makeData.message">All {{makeData.message.name}} Models</h2>
+    </div>
+  </div>
+<div class="b-items">
+    <div class="container">
+
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-12 col-md-12 text-right">
+                <button class="btn m-btn m-readMore wow zoomInUp" (click)="openModal(template)"> REFINE YOUR SEARCH
+                    <span class="fa fa-angle-right"></span>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <ng-template #template>
+                <div class="modal-header">
+                    <h4 class="modal-title">REFINE SEARCH</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body row refine_search">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="col-md-6">
+                            <label>SELECT A MAKE</label>
+                            <div class="relative">
+                                <select name="select1" class="m-select" name="selectMake" [(ngModel)]="search.make" #selectMake="ngModel">
+                                    <option value="" selected="">Any Make</option>
+                                    <option *ngFor="let mk of allmakes" [value]="mk.make_id">{{mk.name}}</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                                        <label>SELECT A MODEL</label>
+                                        <div class="relative">
+                                            <select class="m-select" name="selectModels" [(ngModel)]="search.model">
+                                                    <option value="">Select</option>
+                                                    <option *ngFor="let md of selectedModels" [value]="md.name">{{md.name}}</option>
+                                            </select>
+                                            <span class="fa fa-caret-down"></span>
+                                        </div>
+                                    </div> -->
+
+                        <div class="col-md-6">
+                            <label>STATE</label>
+                            <div class="relative">
+                                <select name="select1" class="m-select">
+                                    <option value="" selected="">Any State</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>YEAR</label>
+                            <div class="relative">
+                                <select name="select1" class="m-select">
+                                    <option value="" selected="">Any Year</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="col-md-12 col-lg-12">
+                        <div class="col-md-6 col-lg-6">
+                            <button type="button" class="btn m-btn btn-info" (click)="doSearch()">FILTER VEHICLES
+                                <span class="fa fa-angle-right"></span>
+                            </button>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <button type="button" class="btn m-btn btn-danger">RESET FILTERS
+                                <span class="fa fa-angle-right"></span>
+                            </button>
+                        </div>
+                    </footer>
+                </div>
+            </ng-template>
+
+
+            <div class="col-lg-12 col-sm-8 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-xs-12" *ngFor="let car of searchListings; let i = index">
+                    <div class="b-items__cell wow zoomInUp" data-wow-delay="0.5s" style="height: 300px; visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                        <div class="b-items__cars-one-img">
+                            <img *ngIf="car['stockImage']" src="{{car['stockImage'][0]['$'].url}}" />
+                            <img *ngIf="!car['stockImage']" src="assets/media/370x200/wolks.jpg" />
+                 
+                        </div>
+                        <div class="b-items__cell-info">
+                            <div class="s-lineDownLeft b-items__cell-info-title">
+                                <!-- <h2 class="">{{car.name}}</h2> -->
+                                <a href="#" routerLink="/cars/details" [queryParams]="{ modelYear: modelInfo.modelYear, makeName: modelInfo.bestMakeName, modelName: modelInfo.bestModelName, styleName:  car['$'].name, styleId: car['$'].id}" >
+                                    <!-- <h2> {{car['$'].id}}</h2> -->
+
+                                    <h2 class="model_name trim_height">{{car['$'].name}}</h2>
+                                    <h2 class="year_class">{{car['$'].modelYear}}</h2>
+                                    <h2 class="year_class"> Best rate : $ {{car.basePrice["0"].$.destination}} /mo</h2>
+                                </a>
+                            </div>
+                            <div class="row m-smallPadding">
+                                <div class="col-xs-6">
+
+                                    <!-- <h5 class="b-items__cell-info-price">$29,415</h5> -->
+                                    <!-- <h5 class="b-items__cell-info-price">${{car['basePrice'][0]['$'].invoice}}</h5> -->
+                                </div>
+                                <div class="col-xs-6">
+                                    <!-- <a href="#" routerLink="/cars/details" [queryParams]="{ model: car.model_id }" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a> -->
+                                    <a href="#" routerLink="/cars/details" [queryParams]="{ modelYear: modelInfo.modelYear, makeName: modelInfo.bestMakeName, modelName: modelInfo.bestModelName, styleName: car['$'].name, styleId: car['$'].id}"
+                                        class="btn m-btn">VIEW DETAILS
+                                        <span class="fa fa-angle-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-12 col-ld-12 text-right">
+                <div class="b-items__pagination wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-items__pagination-main">
+                        <a href="#" class="m-left">
+                            <span class="fa fa-angle-left"></span>
+                        </a>
+                        <span class="m-active">
+                            <a href="#">1</a>
+                        </span>
+                        <span>
+                            <a href="#">2</a>
+                        </span>
+                        <span>
+                            <a href="#">3</a>
+                        </span>
+                        <span>
+                            <a href="#">4</a>
+                        </span>
+                        <a href="#" class="m-right">
+                            <span class="fa fa-angle-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal for refine search -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

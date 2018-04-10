@@ -1,0 +1,23 @@
+
+.b-items__cell {
+    border: none!important;
+}
+.s-lineDownLeft:after {
+    background: none!important;
+}
+.s-lineDownLeft {
+    border-bottom: none!important;
+    text-align: center!important;
+}
+
+.row.m-smallPadding > div {
+    text-align: center!important;
+    width: 100%!important;
+}
+.model_name {
+    font-size: 15px!important;
+    padding-left: 0!important;
+}
+.btn_margin {
+    margin-top: 10px!important;
+}

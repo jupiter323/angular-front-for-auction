@@ -1,0 +1,36 @@
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInLeft;">Your Profile</h1>        
+    </div>
+</section>
+<section class="b-detail s-shadow">    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered table-striped table-hover">
+                    <tbody>
+                        <tr>
+                            <td><b>First Name</b></td>
+                            <td>{{user.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Last Name</b></td>
+                            <td>{{user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Email</b></td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Contact No</b></td>
+                            <td>{{user.mobile_no}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="col-md-6">
+                {{user.first_name}}
+            </div> -->
+        </div>
+    </div>
+</section>
